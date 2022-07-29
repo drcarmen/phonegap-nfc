@@ -431,26 +431,38 @@
     NSData *uid;
     NSString *type;
     
+    NSString *testId;
+    
     switch (tag.type) {
         case NFCTagTypeFeliCa:
             type = @"NFCTagTypeFeliCa";
-            uid = nil;
+//             uid = nil;
+            testId = @"FeliCaId";
+            uid = [testId dataUsingEncoding: NSUTF8StringEncoding];
             break;
         case NFCTagTypeMiFare:
             type = @"NFCTagTypeMiFare";
-            uid = [[tag asNFCMiFareTag] identifier];
+//             uid = [[tag asNFCMiFareTag] identifier];
+            testId = @"MiFareId";
+            uid = [testId dataUsingEncoding: NSUTF8StringEncoding];
             break;
         case NFCTagTypeISO15693:
             type = @"NFCTagTypeISO15693";
-            uid = [[tag asNFCISO15693Tag] identifier];
+//             uid = [[tag asNFCISO15693Tag] identifier];
+            testId = @"ISO15693Id";
+            uid = [testId dataUsingEncoding: NSUTF8StringEncoding];
             break;
         case NFCTagTypeISO7816Compatible:
             type = @"NFCTagTypeISO7816Compatible";
-            uid = [[tag asNFCISO7816Tag] identifier];
+//             uid = [[tag asNFCISO7816Tag] identifier];
+            testId = @"ISO7816Id";
+            uid = [testId dataUsingEncoding: NSUTF8StringEncoding];
             break;
         default:
             type = @"Unknown";
-            uid = nil;
+            testId = @"defaultId";
+            uid = [testId dataUsingEncoding: NSUTF8StringEncoding];
+//             uid = nil;
             break;
     }
                     
